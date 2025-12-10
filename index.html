@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome B2S 😎🪩</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Back 2 School:</h1>
+    <h2>2 Back 2 School</h2>
+    <script
+      type="module"
+      src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"
+    ></script>
+    <fieldset>
+      <legend>Filter the view</legend>
+      <input type="button" value="Oregon and Washington Only" id="onw" />
+      <input type="button" value="Clear Filter" id="clear" />
+      <input type="button" value="Undo" id="undo" />
+    </fieldset>
+    <tableau-viz
+      id="tableauViz"
+      src="https://public.tableau.com/views/Superstore_embedded_800x800/Overview"
+      toolbar="bottom"
+      hide-tabs
+      height="1000px"
+      width="1000px"
+    >
+    </tableau-viz>
+    <script src="app.js"></script>
+    <script>
+      for (let i = 0; i < 8; i++) {
+        const p = document.createElement("div");
+        p.className = "pika";
+        document.body.appendChild(p);
+      }
+    </script>
+  </body>
+</html>

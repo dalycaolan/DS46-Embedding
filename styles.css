@@ -1,0 +1,129 @@
+/* pikachu.css
+   Adds MANY spinning, floating Pikachus to the page.
+   Works with your existing HTML without modification.
+*/
+
+/* --- Global page styling so Pikachus stand out --- */
+body {
+  position: relative;
+  overflow-x: hidden;
+  background: #fffef3;
+  font-family: Arial, sans-serif;
+}
+
+/* =============== SPINNING PIKACHUS =============== */
+
+/* This creates a container that holds multiple Pikachus */
+body::before,
+body::after {
+  content: "";
+}
+
+/* We’ll insert a swarm of Pikachus using repeating background layers */
+body {
+  background-image: url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"),
+    url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"),
+    url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"),
+    url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"),
+    url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"),
+    url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"),
+    url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"),
+    url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png");
+
+  background-size: 80px, 60px, 50px, 110px, 70px, 90px, 55px, 40px;
+
+  background-repeat: no-repeat;
+
+  background-position: 5% 15%, 80% 10%, 10% 45%, 85% 55%, 30% 75%, 60% 80%,
+    5% 90%, 90% 30%;
+
+  animation: pika-float 18s linear infinite alternate;
+}
+
+/* Floating animation causes all Pikachus to gently drift */
+@keyframes pika-float {
+  0% {
+    background-position: 5% 15%, 80% 10%, 10% 45%, 85% 55%, 30% 75%, 60% 80%,
+      5% 90%, 90% 30%;
+  }
+  100% {
+    background-position: 8% 18%, 82% 15%, 15% 50%, 80% 58%, 33% 70%, 65% 85%,
+      3% 88%, 95% 33%;
+  }
+}
+
+/* --- Add ACTUAL spinning Pikachu elements floating above the page --- */
+
+.pika {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  background-image: url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: pika-spin 4s linear infinite,
+    pika-drift 10s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* random drifting motion */
+@keyframes pika-drift {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  100% {
+    transform: translateY(-40px) translateX(30px);
+  }
+}
+
+/* spinning motion */
+@keyframes pika-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Place multiple Pikachus around the viewport */
+.pika:nth-child(1) {
+  top: 10%;
+  left: 5%;
+}
+.pika:nth-child(2) {
+  top: 20%;
+  left: 75%;
+  animation-duration: 5s;
+}
+.pika:nth-child(3) {
+  top: 40%;
+  left: 20%;
+  animation-duration: 3.5s;
+}
+.pika:nth-child(4) {
+  top: 70%;
+  left: 60%;
+  animation-duration: 6s;
+}
+.pika:nth-child(5) {
+  top: 55%;
+  left: 85%;
+  animation-duration: 4.5s;
+}
+.pika:nth-child(6) {
+  top: 80%;
+  left: 10%;
+  animation-duration: 7s;
+}
+.pika:nth-child(7) {
+  top: 30%;
+  left: 50%;
+  animation-duration: 3s;
+}
+.pika:nth-child(8) {
+  top: 85%;
+  left: 40%;
+  animation-duration: 5.5s;
+}
